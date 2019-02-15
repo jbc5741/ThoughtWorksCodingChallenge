@@ -50,4 +50,8 @@ Output #9: 9
 
 Output #10: 7
 
- ==========
+ ========================================
+ 
+ # PICTURE AIDES
+ ![Class Diagram](pics/TWCC Node Map.jpg)
+ 
