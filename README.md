@@ -53,5 +53,6 @@ Output #10: 7
  ========================================
  
  # PICTURE AIDES
+ ## Node Map
  ![Node Map](pics/TWCCNodeMap.jpg)
  
