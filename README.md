@@ -53,5 +53,5 @@ Output #10: 7
  ========================================
  
  # PICTURE AIDES
- ![Class Diagram](pics/TWCCNodeMap.jpg)
+ ![Node Map](pics/TWCC Node Map.jpg)
  
