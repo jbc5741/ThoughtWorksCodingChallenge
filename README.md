@@ -50,4 +50,8 @@ Output #9: 9
 
 Output #10: 7
 
- ==========
+ ========================================
+ 
+ # PICTURE AIDES
+ ![Node Map](pics/TWCC Node Map.jpg)
+ 
