@@ -25,6 +25,17 @@ public class Node {
         this.visited = false;
         this.adjacentList = new LinkedList<Node>();
     }
+    /**
+     * Partial constructor takes only the station name, and sets default values for the other variables.
+     *
+     * @param initialStation
+     *          String representing the initial name for this Node's station
+     */
+    public Node(String initialStation) {
+        this.station = initialStation;
+        this.visited = false;
+        this.adjacentList = new LinkedList<Node>();
+    }
 
     /**
      * Full constructor takes an already initialized LinkedList of Nodes.

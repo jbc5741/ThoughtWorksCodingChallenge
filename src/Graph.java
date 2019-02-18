@@ -88,8 +88,15 @@ public class Graph {
      * For example, AB5 would attempt to add a Node "A", a Node "B" and an Edge between
      * them of weight 5.
      */
-    public void addRoute(String addString) {
-
+    public void addRoute(String addString) throws InvalidRouteInputException {
+        if ((!(Character.isLetter(addString.charAt(0)))) ||
+                (!(Character.isLetter(addString.charAt(1)))) ||
+                (!(Character.isDigit(addString.charAt(2))))) {
+            throw new InvalidRouteInputException(addString);
+        } else {
+            Node sourceNode = new Node (String.valueOf(addString.charAt(0)));
+            if (!(nodes.contains()))
+        }
     }
 
     /**
