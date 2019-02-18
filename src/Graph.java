@@ -104,10 +104,13 @@ public class Graph {
         Integer smallestWeight = 0;
         if (nodes.contains(smallSource)) {
             if (nodes.contains(smallDestination)) {
-                if (smallSource.getAdjacentList().contains(smallDestination)) {
+                if (smallDestination.getVisited()) {
+                    return 0;
+                } else if (smallSource.getAdjacentList().contains(smallDestination)) {
                     return getEdge(smallSource,smallDestination);
                 } else {
                     ListIterator searcher = smallSource.getAdjacentList().listIterator();
+                    smallSource.setVisited(true);
                     while(searcher.hasNext()) {
                         int checkWeight = (getEdge(smallSource,(Node) searcher.next())) +
                                            getSmallestWeight((Node) searcher.next(),smallDestination);
@@ -121,6 +124,9 @@ public class Graph {
             }
         } else {
             throw new NodeNotContainedException(smallSource);
+        }
+        for(Node n : nodes) {
+            n.setVisited(false);
         }
         return smallestWeight;
     }

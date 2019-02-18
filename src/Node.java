@@ -1,8 +1,9 @@
 import java.util.LinkedList;
 
 /**
- * Node.java : Contains a LinkedList of type Node that represents the Nodes that are
- * adjacent.
+ * Node.java : Contains a String holding the name of the station associated with this Node, as well as a boolean to
+ * to track if this station has been visited. Also contains a LinkedList of type Node that represents the Nodes that are
+ * adjacent to this particular Node.
  *
  * @author Jesse Cox
  * @version 1.0
@@ -10,16 +11,18 @@ import java.util.LinkedList;
 
 public class Node {
     private String station;
+    private boolean visited;
     private LinkedList<Node> adjacentList;
 
     private static String DEFAULT_STATION = "No Station Yet!";
 
     /**
      * Default constructor, creates an empty LinkedList, but specifies that it should
-     * be of type Node. Also sets the station name to the default.
+     * be of type Node. Also sets the station name to the default, and visited to false.
      */
     public Node() {
         this.station = DEFAULT_STATION;
+        this.visited = false;
         this.adjacentList = new LinkedList<Node>();
     }
 
@@ -33,6 +36,7 @@ public class Node {
      */
     public Node(String initialStation, LinkedList<Node> initialAdjacentList) {
         this.station = initialStation;
+        this.visited = false;
         this.adjacentList = initialAdjacentList;
     }
 
@@ -69,6 +73,21 @@ public class Node {
      * @return this.station
      */
     public String getStation() { return this.station; }
+
+    /**
+     * Mutator method to set whether this Node has been visited.
+     *
+     * @param newVisited
+     *          boolean value representing whether or not this Node has been visited
+     */
+    public void setVisited(boolean newVisited) { this.visited = newVisited; }
+
+    /**
+     * Accessor method that will return whether or not this Node has been visited.
+     *
+     * @return this.visited
+     */
+    public boolean getVisited() { return this.visited; }
 
     /**
      * equals method checks if station and adjacent list are equal
