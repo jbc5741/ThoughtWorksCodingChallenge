@@ -9,26 +9,30 @@ import java.util.LinkedList;
  */
 
 public class Node {
+    private String station;
     private LinkedList<Node> adjacentList;
 
+    private static String DEFAULT_STATION = "No Station Yet!";
 
     /**
      * Default constructor, creates an empty LinkedList, but specifies that it should
-     * be of type Node.
+     * be of type Node. Also sets the station name to the default.
      */
     public Node() {
+        this.station = DEFAULT_STATION;
         this.adjacentList = new LinkedList<Node>();
     }
 
     /**
-     * Full constructor takes an already established
+     * Full constructor takes an already initialized LinkedList of Nodes.
      *
      * @param initialAdjacentList
      *          a previously created LinkedList of type Node that
      *          will be used as the list of nodes adjacent to this
      *          one.
      */
-    public Node(LinkedList<Node> initialAdjacentList) {
+    public Node(String initialStation, LinkedList<Node> initialAdjacentList) {
+        this.station = initialStation;
         this.adjacentList = initialAdjacentList;
     }
 
@@ -49,6 +53,42 @@ public class Node {
      */
     public LinkedList<Node> getAdjacentList() {
         return this.adjacentList;
+    }
+
+    /**
+     * Mutator method uses a new String to replace the current station name.
+     *
+     * @param newStation
+     *          A String to represent the new name for the station associated with this Node.
+     */
+    public void setStation(String newStation) { this.station = newStation; }
+
+    /**
+     * Accessor method that will return a String representing the station associated with this Node.
+     *
+     * @return this.station
+     */
+    public String getStation() { return this.station; }
+
+    /**
+     * equals method checks if station and adjacent list are equal
+     */
+    @Override
+    public boolean equals(Object anObject) {
+        if (anObject == null || (this.getClass() != anObject.getClass())) {
+            return false;
+        } else {
+            Node altNode = (Node) anObject;
+            return (this.getStation().equals(altNode.getStation()));
+        }
+    }
+
+    /**
+     * toString will only return the station name for this Node
+     */
+    @Override
+    public String toString() {
+        return this.station;
     }
 
 
