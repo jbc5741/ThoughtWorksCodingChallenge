@@ -95,7 +95,19 @@ public class Graph {
             throw new InvalidRouteInputException(addString);
         } else {
             Node sourceNode = new Node (String.valueOf(addString.charAt(0)));
-            if (!(nodes.contains()))
+            Node destinationNode = new Node (String.valueOf(addString.charAt(1)));
+            if (!(nodes.contains(sourceNode))) {
+                nodes.add(sourceNode);
+            }
+            if (!(nodes.contains(destinationNode))) {
+                nodes.add(destinationNode);
+            }
+            sourceNode.getAdjacentList().add(destinationNode);
+
+            Edge newEdge = new Edge(sourceNode, destinationNode, Integer.parseInt(addString.substring(2)));
+            if (!(edges.contains(newEdge))) {
+                edges.add(newEdge);
+            }
         }
     }
 
