@@ -101,6 +101,13 @@ public class Node {
     public boolean getVisited() { return this.visited; }
 
     /**
+     * addAdjacent adds one Node to the LinkedList of Nodes that this Node is adjacent to.
+     */
+    public void addAdjacent(Node newNode) {
+        this.adjacentList.add(newNode);
+    }
+
+    /**
      * equals method checks if station and adjacent list are equal
      */
     @Override

@@ -6,8 +6,13 @@
  * @version 1.0
  */
 
-public class NodeNotContainedException extends Exception{
-    public NodeNotContainedException(Node n) { super(n +
-                                    " is not a valid option!"); }
-    public NodeNotContainedException() { super("That is not a valid Node!"); }
+public class NodeNotContainedException extends Exception {
+    public NodeNotContainedException(Node n) {
+        super(n +
+                " is not a valid option!");
+    }
+
+    public NodeNotContainedException() {
+        super("That is not a valid Node!");
+    }
 }

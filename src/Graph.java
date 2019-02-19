@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.LinkedList;
 import java.util.ListIterator;
 
@@ -74,7 +75,7 @@ public class Graph {
      */
     public int getEdge(Node findSource, Node findDestination) throws NodeNotContainedException {
         Edge findEdge = new Edge(findSource, findDestination);
-        if ((!(edges.contains(findSource))) || (!(edges.contains(findDestination)))) {
+        if ((!(this.nodes.contains(findSource))) || (!(this.nodes.contains(findDestination)))) {
             throw new NodeNotContainedException();
         } else {
             return (edges.get(edges.indexOf(findEdge))).getWeight();
@@ -94,6 +95,7 @@ public class Graph {
                 (!(Character.isDigit(addString.charAt(2))))) {
             throw new InvalidRouteInputException(addString);
         } else {
+
             Node sourceNode = new Node (String.valueOf(addString.charAt(0)));
             Node destinationNode = new Node (String.valueOf(addString.charAt(1)));
             if (!(nodes.contains(sourceNode))) {
@@ -102,11 +104,11 @@ public class Graph {
             if (!(nodes.contains(destinationNode))) {
                 nodes.add(destinationNode);
             }
-            sourceNode.getAdjacentList().add(destinationNode);
 
             Edge newEdge = new Edge(sourceNode, destinationNode, Integer.parseInt(addString.substring(2)));
             if (!(edges.contains(newEdge))) {
                 edges.add(newEdge);
+                nodes.get(nodes.indexOf(sourceNode)).addAdjacent(destinationNode);
             }
         }
     }
@@ -151,6 +153,22 @@ public class Graph {
     }
 
     /**
+     * findPossibleRoutes takes a source and a destination Node, as well as a maximum weight to be contained by the
+     * that could be taken to reach the destination from the source.
      *
+     * @param source
+     *          represents the starting Node
+     * @param destination
+     *          represents the ending Node
+     * @param maxWeight
+     *          represents the maximum weight to be contained by the edges that could be taken to reach the destination
+     *          from the source
+     *
+     * @return possibleRoutes
+     *          LinkedList of Strings that contains a list of all possible routes from the source to the destination
+     *          without going over the maximum weight.
      */
+    public LinkedList<String> findPossibleRoutes(Node source, Node destination, int maxWeight) {
+        if ()
+    }
 }
